@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Survey
+
+<div class="mt-5 mx-auto w-75">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1 class="text-center text-primary-emphasis">Coding Dojo Survey</h1>
+        </div>
+        <div class="card-body">
+            <form asp-action="Process" asp-controller="Home" method="post">
+                <div class="mb-3 d-flex justify-content-between">
+                    <label asp-for="Name" class="form-label   fs-5 text-primary-emphasis"></label>
+                    <input asp-for="Name" class="form-control fs-5 text-center w-50">
+                    <span asp-validation-for="Name" class="text-warning"></span>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <label  asp-for="DojoLocation" class="form-label  fs-5 text-primary-emphasis"></label>
+                    <select asp-for="DojoLocation" class="form-select fs-5 text-center w-50">
+                        <option disabled selected>----- Select Location -----</option>
+                        <option value="Berkley"    >Berkley</option>
+                        <option value="Chicago"    >Chicago</option>
+                        <option value="Dallas"     >Dallas</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Seattle"    >Seattle</option>
+                        <option value="Virginia"   >Virginia</option>
+                    </select>
+                    <span asp-validation-for="DojoLocation" class="text-warning"></span>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <label  asp-for="FavoriteLanguage" class="form-label  fs-5 text-primary-emphasis"></label>
+                    <select asp-for="FavoriteLanguage" class="form-select fs-5 text-center w-50">
+                        <option disabled selected>----- Select Language -----</option>
+                        <option value="C Sharp"   >C#</option>
+                        <option value="Java"      >Java</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python"    >Python</option>
+                    </select>
+                    <span asp-validation-for="FavoriteLanguage" class="text-warning"></span>
+                </div>
+                <div class="mb-3">
+                    <label    asp-for="Comment" class="form-label   fs-5 text-primary-emphasis"></label>
+                    <textarea asp-for="Comment" class="form-control fs-5" cols="30" rows="5"></textarea>
+                    <span asp-validation-for="Comment" class="text-warning"></span>
+                </div>
+                <input type="submit" value="Submit" class="form-control btn btn-primary w-25 float-end">
+            </form>
+        </div>
+    </div>
+</div>
